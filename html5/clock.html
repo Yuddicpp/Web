@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="D:\Important\font-end-development\summer\study\Jquery\jquery-3.3.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clock {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="clock" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementsByClassName("clock")[0];
+        var cxt = canvas.getContext('2d');
+        var width = parseInt(getComputedStyle(canvas).width);
+        var height = parseInt(getComputedStyle(canvas).height);
+        var r = width / 2;
+        // 画表盘
+        function drawBg() {
+            
+            // 重置原点
+            cxt.save();
+            cxt.translate(r, r);
+            // 画时钟外圈
+            cxt.beginPath();
+            cxt.arc(0, 0, r - 5, 0, 2 * Math.PI, false);
+            cxt.lineWidth = 8;
+            cxt.stroke();
+            // 画小时数
+            var hour = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+
+            hour.forEach(function (num, i) {
+                var rad = 2 * Math.PI / 12 * i;
+                var x = Math.cos(rad) * (r - 30);
+                var y = Math.sin(rad) * (r - 30);
+                cxt.font = "18px sans-serif"
+                cxt.textAlign = "center";
+                cxt.textBaseline = "middle";
+                cxt.fillText(num, x, y);
+            });
+
+            // 画刻度
+            for (var i = 0; i < 60; i++) {
+                var rad = 2 * Math.PI / 60 * i;
+                var x = Math.cos(rad) * (r - 18);
+                var y = Math.sin(rad) * (r - 18);
+
+                cxt.beginPath();
+                if (i % 5 == 0) {
+                    cxt.fillStyle = "#000";
+                    cxt.arc(x, y, 2, 0, 2 * Math.PI, true);
+                }
+                else {
+                    cxt.fillStyle = "#bbb";
+                    cxt.arc(x, y, 2, 0, 2 * Math.PI, true);
+                }
+                cxt.fill();
+            }
+        }
+        // 画时针
+        function drawHour(hour, minute) {
+            cxt.save();
+            var rad = 2 * Math.PI / 12 * hour + 2 * Math.PI / 12 * minute / 60;
+            cxt.beginPath();
+            cxt.rotate(rad);
+            cxt.moveTo(0, 15);
+            cxt.lineTo(0, -r / 2);
+            cxt.lineWidth = 5;
+            cxt.lineCap = 'round';
+            cxt.stroke();
+            cxt.restore();
+        }
+        // 画分针
+        function drawMinute(minute) {
+            cxt.save();
+            var rad = 2 * Math.PI / 60 * minute;
+            cxt.beginPath();
+            cxt.rotate(rad);
+            cxt.moveTo(0, 18);
+            cxt.lineTo(0, -r + 40);
+            cxt.lineWidth = 3;
+            cxt.lineCap = "round";
+            cxt.stroke();
+            cxt.restore();
+        }
+        // 画秒针
+        function drawSecond(second) {
+            cxt.save();
+            var rad = 2 * Math.PI / 60 * second;
+            cxt.beginPath();
+            cxt.rotate(rad);
+            cxt.moveTo(0, 25);
+            cxt.lineTo(2, 25);
+            cxt.lineTo(-2, 25);
+            cxt.lineTo(-1, -r + 25);
+            cxt.lineTo(1, -r + 25);
+            cxt.lineTo(2, 25);
+            cxt.lineWidth = 1;
+            cxt.fillStyle = "#f00";
+            cxt.fill();
+            cxt.restore();
+        }
+        // 画中心点
+        function drawDot() {
+            cxt.beginPath();
+            cxt.arc(0, 0, 4, 0, 2 * Math.PI, true);
+            cxt.fillStyle = "#fff";
+            cxt.fill();
+        }
+        function draw() {
+            cxt.clearRect(0, 0, width, height);
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            drawBg();
+            drawHour(hour, minute);
+            drawMinute(minute);
+            drawSecond(second);
+            drawDot();
+            cxt.restore();
+        }
+
+        draw();
+        setInterval(function () {
+            draw();
+        }, 1000);
+    </script>
+</body>
+
+</html>

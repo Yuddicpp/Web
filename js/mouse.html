@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mouse</title>
+</head>
+<body>
+    <div style="width:100px;height:100px;background-color:red;position:absolute;left:0px;top:0px;"></div>
+    <script>
+      function drag(elem) {
+          var disX,disY;
+          elem.addEventListener('mousedown',function (e) {
+              var event = e || window.event;
+              disX = event.pageX - parseInt(elem.style.left);
+              disY = event.pageY - parseInt(elem.style.top);
+              document.addEventListener('mousemove',mouseMove);
+              document.addEventListener('mouseup',mouseUp);
+              event.stopPropagation();
+          });
+          function mouseMove(e) {
+              var event = e || window.event;
+              elem.style.left = event.pageX - disX +'px';
+              elem.style.top = event.pageY - disY + 'px';
+          }
+          function mouseUp(e) {
+              var event = e || window.event;
+              document.removeEventListener('mousemove',mouseMove);
+          }
+      }
+      var div = document.getElementsByTagName('div')[0];
+      drag(div);
+
+
+
+    //   var div = document.getElementsByTagName('div')[0];
+    //     var disX, disY, firsttime, secondtime, key, i = 0;
+    //     div.onmousedown = function (e) {
+    //         firsttime = new Date().getTime();
+    //         disX = e.pageX - parseInt(div.style.left);
+    //         disY = e.pageY - parseInt(div.style.top);
+
+    //         document.onmousemove = function (e) {
+    //             var event = e || window.event;
+    //             div.style.left = e.pageX - disX + "px";
+    //             div.style.top = e.pageY - disY + "px";
+    //         }
+
+    //         document.onmouseup = function () {
+    //             document.onmousemove = null;
+    //             secondtime = new Date().getTime();
+    //             if (secondtime - firsttime < 300) {
+    //                 key = true;
+    //             }
+    //         }
+    //     }
+    //     div.onclick = function () {
+    //         if (key) {
+    //             if (i % 2 == 0) {
+    //                 div.style.backgroundColor = 'black';
+    //             } else {
+    //                 div.style.backgroundColor = 'red';
+    //             }
+    //             i++;
+    //             key = false;
+    //         }
+    //     }
+    </script>
+</body>
+</html>
+
+
+

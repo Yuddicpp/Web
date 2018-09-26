@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>    
+        // function a() {
+        //     function b() {
+        //         function c() {  
+        //              console.log(aa);
+        //         }
+        //         c();
+        //     }
+        //     b();
+        // var aa =10;
+        // console.log(aa);
+        // }
+        // a();
+
+        // var demo = (function a () {
+        //     var aa=0;
+        //     function b(){
+        //         document.write(aa++);
+        //     }
+        //     return b;
+        // }())
+        // demo();
+        // demo();
+        // demo();
+            
+        // var test = function c(){
+        //     console.log(123);
+            
+        // };
+        // test ();
+
+        // function test (){
+        //      var arr =[];
+        //      for (var i = 0; i < 10; i++) {
+        //          (function (j) {
+        //                  arr[j] = function () {
+        //                      document.write(j+"");
+        //                  }
+        //              }(i));
+        //      }
+        //      return arr;
+        //  }
+
+        //  var myArr = test ();
+        //  for(var i = 0; i<10; i++)
+        //  {
+        //      myArr[i]();
+        //  }
+    </script>
+    <script>
+        function test() {  
+            var licollection = document.getElementsByTagName('li');
+
+            for (var i = 0; i < licollection.length; i++) {
+                (function (j) {
+                    licollection[j].onclick = function () {
+                    console.log(j);
+                  }
+                  
+                  }(i));
+            }
+        }
+        test();
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            height: 20px;
+        }
+        .x{
+            background-color: red;
+        }
+        .y{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="x">a</li>
+        <li class="y">a</li>
+        <li class="x">a</li>
+        <li class="y">a</li>
+    </ul>
+</body>
+</html>

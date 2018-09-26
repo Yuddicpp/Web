@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* @1*{
+            margin: 0%;
+            padding: 0%;
+            list-style: none;
+        }
+        li{
+            float: left;
+            background-color: red;
+            padding: 10px;
+            margin: 10px;
+        } */
+
+        
+        .wrapper{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .content{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!--@1 <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+
+
+    <div class="wrapper">
+        <div class="content">
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        // @1
+        // var li = document.getElementsByTagName('li');
+        // for (let i = 0; i < li.length; i++) {
+        //     (
+        //         function (i) {
+        //             li[i].addEventListener('click',function () {
+        //                 console.log(i);
+        //             },false)
+        //         }(i)
+        //     )
+            
+        // }
+
+
+        var wrapper = document.getElementsByClassName('wrapper')[0];
+        var content = document.getElementsByClassName('content')[0];
+        var box = document.getElementsByClassName('box')[0];
+
+        wrapper.addEventListener('click',function () {
+            console.log('wrapper');
+        },true)
+        content.addEventListener('click', function () {
+                console.log('content');
+            }, true)
+        box.addEventListener('click', function () {
+                console.log('box');
+            }, true)
+        wrapper.addEventListener('click', function () {
+                console.log('wrapperBubble');
+            }, false)
+        content.addEventListener('click', function () {
+                console.log('contentBubble');
+            }, false)
+        box.addEventListener('click', function () {
+                console.log('boxBubble');
+            }, false)
+    </script>
+</body>
+</html>

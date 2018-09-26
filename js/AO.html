@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // function fn(a) {
+        //     console.log(a);
+
+        //     var a = 123;
+
+        //     console.log(a);
+
+        //     function a() {}
+
+        //     console.log(a);
+
+        //     var b = function () {}
+
+        //     console.log(b);
+
+        //     function d() {}
+        // }
+
+        // fn(1);
+
+        // 预编译发生在函数执行的前一刻；
+
+        // 1.创建AO （Activation Object）（执行期上下文）
+        // 2.AO{
+        //     a: function a (){}
+        //     b:undefined;
+        //     d:function d(){}
+        // }
+
+        // function test(a, b) {
+        //     console.log(a);
+        //     console.log(c);
+        //     c = 0;
+        //     var c;
+        //     a = 3;
+        //     b = 2;
+        //     console.log(b);
+
+        //     function b() {}
+
+        //     function d() {}
+        //     console.log(b);
+        // }
+        // test(1, 3);
+
+        // // AO{
+        // //     a:3;
+        // //     b:undefined;
+        // //     c:0;
+        // // }
+
+        // function test1(a, b) {
+        //     console.log(a);
+        //     console.log(b);
+        //     var b = 234;
+        //     console.log(b);
+        //     a = 123;
+        //     console.log(a);
+
+        //     function a() {}
+        //     var a;
+        //     b = 234;
+        //     var b = function () {}
+        //     console.log(a);
+        //     console.log(b);
+
+        // }
+        // test1(1);
+
+        // // AO{
+        // //     a:functiona(){};
+        // //     b:undefined;
+        // // }
+
+        // global = 100;
+
+        // function fn() {
+        //     console.log(global);
+        //     global = 200;
+        //     console.log(global);
+        //     var global = 300;
+        // }
+
+        // fn();
+        // var global;
+
+
+        // function bar() {
+        //     return foo;
+        //     foo = 10;
+
+        //     function foo() {
+
+        //     }
+        //     var foo = 11;
+        // }
+        // console.log(bar());
+
+        // console.log(bar());
+
+        // function bar() {
+        //     foo = 10;
+
+        //     function foo() {
+
+        //     }
+        //     var foo = 11;
+        //     return foo;
+        // }
+
+        // if ('' + (+undefined)) {
+        //     console.log('hahah')
+        // }
+
+        // window.foo||(window.foo='bar');
+    </script>
+</head>
+<body>
+
+</body>
+
+</html>

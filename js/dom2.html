@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <div>
+        <i></i>
+        <em></em>
+        <b></b>
+        <span></span>
+    </div>
+    <script>
+        // function retParent(elem, n) {
+        //     while (n) {
+        //         elem = elem.parentElement;
+        //         n--;
+        //     }
+        //     return elem;
+        // }
+        // var i = document.getElementsByTagName('i')[0];
+
+        // Element.prototype.myChildren= function () {
+        //     var child = this.childNodes;
+        //     var len = child.length;
+        //     var arr = [];
+        //     for (var i = 0; i < len; i++) {
+        //         if(child[i].nodeType == 1){
+        //             arr.push(child[i])
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // var div = document.getElementsByTagName('div')[0];
+        
+        // 创建元素节点
+        // var div = document.createElement('div');
+        // div.innerHTML = '123';
+        // document.body.appendChild(div);
+        
+        // 创建文本节点
+        // var text = document.createTextNode('456');
+
+        // 创建注释节点
+        // var comment = document.createComment('789');
+        
+        // appendChild()
+        // var div = document.getElementsByTagName('div')[0];
+        // var text = document.createTextNode('456');
+        // var span = document.createElement('span');
+        // div.appendChild(text); 
+        // div.appendChild(span);
+        // var text1 = document.createTextNode('demo');
+        // span.appendChild(text1);
+        // span.appendChild(text);
+
+        // appendChild()相当于剪切操作
+        // var div = document.getElementsByTagName('div')[0];
+        // var span = document.getElementsByTagName('span')[0];
+        // div.appendChild(span);
+        
+        // insertBefore
+        // var div = document.getElementsByTagName('div')[0];
+        // var span = document.getElementsByTagName('span')[0];
+        // var em = document.getElementsByTagName('em')[0];
+        // div.ins  ertBefore(span,em);
+        // div.appendChild(span);
+
+        // var div = document.createElement('div');
+        // var p = document.createElement('p');
+        // div.setAttribute('class','example');
+        // p.setAttribute('class','slogan');
+        // div.appendChild(p);
+        // p.innerHTML='123';
+        // document.body.appendChild(div);
+
+        // Element.prototype.insertAfter = function (targetNode,afterNode) {
+        //     var beforeNode = afterNode.nextElementSibling;
+        //     if(beforeNode == null){
+        //         this.appendChild(targetNode);
+        //     }else{
+        //         this.insertBefore(targetNode,beforeNode);
+        //     }
+        // }
+        // var div = document.getElementsByTagName('div')[0];
+        // var b = document.getElementsByTagName('b')[0];
+        // var p = document.getElementsByTagName('p')[0];
+
+        var firsttime = new Date().getTime();
+        for (let i = 0; i < 10000000; i++) {
+            
+        }
+        var secondtime = new Date().getTime();
+        console.log(secondtime-firsttime);
+    </script>
+</body>
+</html>
+

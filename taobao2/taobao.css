@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+html,body{
+    width: 100%;
+    /* background-color: #f4f4f4; */
+    height: 1000px;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+.wrapper .top-nav-wrap{
+    width: 100%;
+    height: 35px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+}
+.wrapper .top-nav-wrap .top-nav{
+    width: 1190px;
+    height: 35px;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-l{
+    float: left;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-r{
+    float: right;
+}
+.wrapper .top-nav-wrap .top-nav li{
+    float: left;
+    margin-right: 7px;
+}
+.wrapper .top-nav-wrap .top-nav li a{
+    font-size: 12px;
+    color: #6c6c6c;
+    line-height: 35px;
+    padding:0 6px;
+}
+.wrapper .top-nav-wrap .top-nav li a:hover,
+.wrapper .top-nav-wrap .top-nav li .login{
+    color: #f40;
+}
+.wrapper .top-nav-wrap .top-nav .china{
+    color: #3c3c3c;
+    font-size: 12px;
+    line-height: 35px;
+}
+.wrapper .top-nav-wrap .top-nav .cutOff span{
+    color: #ddd;
+    line-height: 35px;
+}
+.wrapper .top-nav-wrap .top-nav .bgPic{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    background-size: 100%
+    /* border: 1px solid black; */
+}
+.wrapper .top-nav-wrap .top-nav .xsjPic{
+    background-image: url(down.jpg);
+}
+.wrapper .top-nav-wrap .top-nav .shopCarPic{
+    width: 12px;
+    height: 12px;
+    background-image: url(购物车.jpg);
+}
+.wrapper .top-nav-wrap .top-nav .likePic{
+    background-image: url(评分五角星.jpg);
+    width: 12px;
+    height: 11px;
+}
+.wrapper .top-nav-wrap .top-nav .webNavPic{
+    background-image: url(网站导航.png);
+    width: 6px;
+    height: 10px;
+}
+/* nav-ending */
+.wrapper .search-wrap{
+    width: 100%;
+    height: 97px;
+    /* border: 1px solid black; */
+    padding-top:24px;
+    padding-bottom: 9px;
+    background-color: #fff;
+}
+.search-con{
+    width: 1190px;
+    height: 88px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+.wrapper .search-wrap .search-con .logo-box{
+    width: 190px;
+    height: 80px;
+    /* border: 1px solid black; */
+    display: inline-block;
+    vertical-align: middle;
+}
+.wrapper .search-wrap .search-con .logo-box img{
+    width: 100%;
+    height: 100%;
+}
+.wrapper .search-wrap .search-con .search-box{
+    height: 87px;
+    width: 627px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: middle;
+}
+.wrapper .search-wrap .search-con .search-box .search-bd{
+    width: 627px;
+    height: 62px;
+    border: 1px solid black;
+}
+.wrapper .search-wrap .search-con .search-box .search-tab{
+    width: 610px;
+    height: 22px;
+    margin-left: 17px;
+    /* border: 1px solid black; */  
+}
+.wrapper .search-wrap .search-con .search-box .search-bd .search-tab li{
+    float: left;
+    width: 36px;
+    height: 22px;
+    line-height: 22px;
+    color: #f40;
+    text-align: center;
+    margin-right: 4px;
+    font-size: 12px;
+}
+.wrapper .search-wrap .search-con .search-box .search-bd .search-tab li:hover{
+    background-color: #ffeee5;
+}
+.wrapper .search-wrap .search-con .search-box .search-tab li.select{
+    background-image: linear-gradient(to right,#ff9000 0,#ff5000 100%);
+    color: #fff; 
+    font-weight: 700;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.wrapper .search-wrap .search-con .search-box .search-panel{
+    width: 627px;
+    height: 40px;
+    position: relative;
+    border: 1px solid black;
+}
+.wrapper .search-wrap .search-con .search-box .search-panel .btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 74px;
+    height: 40px;
+    z-index: 1000;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+}
+.wrapper .search-wrap .search-con .search-box .search-panel .btn button{
+    background-color: #ff4200;
+    border: none;
+    width:100%;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+.wrapper .search-wrap .search-con .search-box .search-panel .search-inp-box{
+    
+}
+.wrapper .search-wrap .search-con .search-box .search-ft{
+    width: 586px;
+    height: 18px;
+    border: 1px solid black;
+}
+.wrapper .search-wrap .search-con .code-box{
+    height: 90px;
+    width:76px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: middle;
+}

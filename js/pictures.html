@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>张世煜的轮播图</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            list-style: none;
+        }
+
+        .scroll {
+            width: 500px;
+            height: 400px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 7px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ul>li {
+            widows: 500px;
+            height: 400px;
+            float: left;
+        }
+
+        .ul {
+            position: absolute;
+            height: 400px;
+        }
+
+        .box {
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ol>li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            background-color: pink;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .scroll ol li.current {
+            background-color: purple;
+        }
+
+        span {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            top: 40%;
+            position: absolute;
+            background-color: #ccc;
+            color: aliceblue;
+            text-align: center;
+            line-height: 30px;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        span.right {
+            right: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll">
+        <div class="box">
+            <ul class="ul" style="width:600%;left:0%;">
+                <li>
+                    <img src="http://pic31.photophoto.cn/20140417/0005018721666684_b.jpg" width="500px" height="400px">
+                </li>
+                <li>
+                    <img src="http://img4.duitang.com/uploads/item/201508/21/20150821145638_ME2jh.jpeg" width="500px" height="400px">
+                </li>
+                <li>
+                    <img src="http://img2.100bt.com/upload/ttq/20140301/1393655276686_middle.jpg" width="500px" height="400px">
+                </li>
+                <li>
+                    <img src="http://img5q.duitang.com/uploads/item/201505/09/20150509135625_EZYd2.jpeg" width="500px" height="400px">
+                </li>
+                <li>
+                    <img src="http://d.hiphotos.baidu.com/zhidao/pic/item/b2de9c82d158ccbf37ccc74a1ed8bc3eb1354149.jpg" width="500px" height="400px">
+                </li>
+                
+            </ul>
+            <span class="left" style="display:none;">&lt;</span>a
+            <span class="right" style="display:none;">></span>
+        </div>
+    </div>
+    <script>
+        var scroll = document.getElementsByClassName('scroll')[0];//获得大盒子
+        var box = document.getElementsByClassName('box')[0];//获得小盒子
+        var span = document.getElementsByTagName('span');
+        var ul = document.getElementsByClassName('ul')[0];//获得ul
+        var ulLis = ul.children;//获得ul下面的li
+        var liwidth = ul.children[0].offsetWidth;//获得li的宽度
+        // 操作元素
+        // 因为要做无缝滚动，所以要克隆第一张，放到最后一张后面
+        // 1. 克隆元素
+        ul.appendChild(ul.children[0].cloneNode(true));
+
+        // 2.创建ol和li
+        var ol = document.createElement('ol');
+        ol.className = 'ol';
+        box.appendChild(ol);
+        var len = ulLis.length;
+        ul.style.width = (len * 100) + "%";
+        for (let i = 0; i < len - 1; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = i + 1;
+            ol.appendChild(li);
+            li.onmouseover = function () {
+                ul.style.left = -i*liwidth +'px';
+                for (var a = 0; a < len -1 ;a++) {
+                    ol.children[a].className=' ';
+                }
+                ol.children[i].className='current';
+            }
+        }
+        function change() {
+            var a = Math.floor(Math.abs(ul.offsetLeft) / liwidth) + 1;
+            a = a % len;
+            // switch (a) {
+            //     case 1:
+            //         ol.children[1].className = 'current';
+            //         break;
+            //     case 2:
+            //         ol.children[1].className = '';
+            //         ol.children[2].className = 'current';
+            //         break;
+            //     case 3:
+            //         ol.children[2].className = '';
+            //         ol.children[3].className = 'current';
+            //         break;
+            //     case 4:
+            //         ol.children[3].className = '';
+            //         ol.children[4].className = 'current';
+            //         break;
+            //     case 5:
+            //         ol.children[4].className = '';
+            //         ol.children[0].className = 'current';
+            //         break;
+            //     case 0:
+            //         ul.style.left = '0px';
+            //         ol.children[0].className = ' ';
+            //     default:
+            //         break;
+            // }
+            if (a == 1) {
+                ol.children[1].className = 'current';
+            } else if (a == 0) {
+                ul.style.left = '0px';
+                ol.children[0].className = ' ';
+            } else if (a == len - 1) {
+                ol.children[a - 1].className = '';
+                ol.children[0].className = 'current';
+            } else {
+                ol.children[a - 1].className = '';
+                ol.children[a].className = 'current';
+            }
+            ul.style.left = ul.offsetLeft - 15 + 'px';
+        }//封装图片移动函数
+        function lunbo() {
+            var timer = setInterval(change, 100);
+            function mouseOver() {
+                var span_len = span.length;
+                for (let i = 0; i < span_len; i++) {
+                    span[i].style.display = 'inline';
+                }
+                clearInterval(timer);
+            }
+            function mouseOut() {
+                timer = setInterval(change, 100);
+                var span_len = span.length;
+                for (let i = 0; i < span_len; i++) {
+                    span[i].style.display = 'none';
+                }
+            }
+            box.addEventListener('mouseover', mouseOver, false);
+            box.addEventListener('mouseout', mouseOut, false);
+            span[0].onclick = function () {
+                var a = Math.floor(Math.abs(ul.offsetLeft) / liwidth) + 1;
+                a = a % len; 
+                ul.style.left = -(a-2)*liwidth + 'px';
+                for (var a = 0; a < len - 1; a++) {
+                    ol.children[a].className = ' ';
+                }
+                var key = -ul.offsetLeft/liwidth;
+                key = (key!=5)?key:0;
+                ol.children[key].className='current';    
+            }
+            span[1].onclick = function () {
+                var a = Math.floor(Math.abs(ul.offsetLeft) / liwidth) + 1;
+                a = a % len;
+                ul.style.left = -(a) * liwidth + 'px';
+                for (var a = 0; a < len - 1; a++) {
+                    ol.children[a].className = ' ';
+                }
+                var key = -ul.offsetLeft/liwidth;
+                key = (key!=5)?key:0;
+                ol.children[key].className='current';
+            }
+        }
+        lunbo();
+    </script>
+</body>
+
+</html>

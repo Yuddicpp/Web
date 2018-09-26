@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{
+            border: 1px solid black;
+            text-align: right;
+            font-size: 150%;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    minutes:<input type="text" value="0">
+    seconds:<input type="text" value="0">
+    <script>
+        // var firstTime = new Date().getTime();
+        // var time = setInterval(function () {
+        //     var lastTime = new Date().getTime();
+        //     console.log(lastTime - firstTime);
+        //     firstTime = lastTime;
+        // },1000);
+        // clearInterval(time);
+        var secondsNode = document.getElementsByTagName('input')[1];
+        var minutesNode = document.getElementsByTagName('input')[0];
+        var minutes = 0, seconds = 0;
+        var time = setInterval(function () {
+            seconds++;
+            if(seconds == 60){
+                seconds = 0;
+                minutes++;
+            }
+            secondsNode.value = seconds;
+            minutesNode.value = minutes;
+            if(minutes==3)
+            {
+                clearInterval(time);
+            }
+        },10);
+    </script>
+</body>
+</html>

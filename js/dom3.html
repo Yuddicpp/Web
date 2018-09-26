@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="width:100px;height:100px;border-radius:50%;background-color:orange;color：#fff;position:fixed;font-size:20px;font-weight:bold;right:50px;bottom:100px;text-align:center;line-height:100px;">Start</div>
+    <div style="width:100px;height:100px;border-radius:50%;background-color:orange;color：#fff;position:fixed;font-size:20px;font-weight:bold;right:50px;bottom:0px;text-align:center;line-height:100px;">Pause</div>
+    <div style="width:100px;height:100px;border-radius:50%;background-color:orange;color：#fff;position:fixed;font-size:20px;font-weight:bold;right:50px;bottom:200px;text-align:center;line-height:100px;">Return</div>
+    <div style="width:100px;height:100px;border-radius:50%;background-color:orange;color：#fff;position:fixed;font-size:20px;font-weight:bold;right:50px;bottom:300px;text-align:center;line-height:100px;">Speed</div>
+    <script>
+        var start = document.getElementsByTagName('div')[0];
+        var pause = document.getElementsByTagName('div')[1];
+        var Return = document.getElementsByTagName('div')[2];
+        var Speed = document.getElementsByTagName('div')[3];
+        var i =1,timer = 0;
+        var key = true;
+        start.onclick = function () {
+            if(key){
+                timer = setInterval(function () {
+            window.scrollBy(0,i);
+        },10);
+        key = false;
+            }
+        }
+        pause.onclick = function () {
+            clearInterval(timer);
+            key = true;
+        }
+        Return.onclick = function () {
+            clearInterval(timer);
+            key = true;
+            window.scroll(0,0);
+            i = 1;
+        }
+        Speed.onclick = function () {
+            i++;
+        }
+    </script>
+</body>
+</html>

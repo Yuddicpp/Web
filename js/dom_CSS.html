@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div style="width:100px;height:100px;background-color:red;position:fixed;"></div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        function getStyle(elem,prop) {
+            if(window.getComputedStyle){
+                return window.getComputedStyle(elem,null)[prop];
+            }else {
+                return elem.currentStyle[prop];
+            }
+        }
+        setInterval(function () {
+            if(div.style.left){
+                div.style.left=parseInt(div.style.left)+10+'px';
+            }
+            else{
+                div.style.left='10px';
+            }
+        },100)
+    </script>
+</body>
+</html>

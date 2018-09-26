@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var mrDeng = {
+        //     name : "MrDeng",
+        //     age : 40,
+        //     sex : "male",
+        //     health :100,
+        //     smoke : function () {
+        //         console.log('I don\'t know');
+        //         mrDeng.health--;
+        //       },
+        //     drink : function () {
+        //         console.log('HAHAHAHAHA');
+        //         mrDeng.health++;
+        //       }
+        // }
+
+        // function Car (color) {
+        //     this.name = "BMW",
+        //     this.color = color,
+        //     this.height = "1400",
+        //     this.lang = "4900",
+        //     this.weight = 1000,
+        //     this.health = 100,
+        //     this.run = function () {
+        //         this.health--;
+        //     }
+        //   }
+        //   var car = new Car('red');
+
+        // function Student(name,sex,age) {
+        //     this.name = name,
+        //     this.sex = sex,
+        //     this.age= age,
+        //     this.say = function () {
+        //         console.log(this.say);
+                
+        //       }
+        //   }
+        //   var Std = new Student('A','b',17);
+        
+        // function moving(n,a,b) {
+        //     document.write(n+":"+a+"->"+b+"<br>");
+        // }
+        // function hannuota(n,a,b,c) {
+        //     if (n == 1) {
+        //         moving(1,a,c);
+        //     } else {
+        //         hannuota(n-1,a,c,b);
+        //         moving(n,a,c);
+        //         hannuota(n-1,b,a,c);
+        //     }
+        // }
+        // var n =0;
+        // var a = "a", b = "b", c = "c";
+        // n=window.prompt();
+        // hannuota(n,a,b,c);
+
+        // var str = 'Hello world 你好';
+        // var len = 0;
+        // for (var i = 0; i < str.length; i++) {
+        //     if(str.charCodeAt(i)>255)
+        //     {
+        //         len+=2;
+        //     }
+        //     else{
+        //         len++;
+        //     }
+        // }
+        // console.log(len);
+        
+        
+
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // var person = new Person('Zhang',100)
+        // var obj ={};
+        // Person.call(obj,'Deng',99);
+
+
+
+
+        // function Person(name, age ,sex) {
+        //     this.name =name;
+        //     this.age =age;
+        //     this.sex =sex;
+        // }
+
+        // function Student(name ,age ,sex,tel,grade) {
+        //     Person.call(this,name,age,sex);
+        //     this.tel=tel;
+        //     this.grade=grade;
+        // }
+
+        // var student =new Student('sunny',123,'male',139,2017);    借用构造函数
+        
+
+
+
+
+        // Grand.prototype.lastname = "Deng";
+        // function Grand() {
+            
+        // }
+        // var grand = new Grand();
+
+        // Father.prototype = grand;
+        // function Father() {
+        //     this.name="ah";
+        //     this.forture={
+        //     }
+        // }
+        // var father = new Father();
+
+        // Son.prototype = father;
+        // function Son() {
+        //     this.hobit= "smoke";
+        // }
+        // var son = new Son();  传统形式--->原型链
+
+
+
+        // Father.prototype.lastname = "Deng";
+        // function Father() {
+            
+        // }
+        // function Son() {
+            
+        // }
+        
+
+        // function inherit (target,origin) {
+        //     target.prototype=origin.prototype;
+        // }
+        // inherit(Son,Father);
+        // var son = new Son();
+        // var father = new Father();
+        // son.sex="male";
+
+
+        // function inherit(target,origin) {
+        //     function F() {
+        //         this.name="zhang";
+        //     }
+        //     F.prototype=origin.prototype;
+        //     target.prototype=new F();
+        //     target.prototype.constructor=target;
+        //     target.prototype.uber = origin.prototype;
+        // }  //圣杯模式
+        // Father.prototype.lastname = "Deng";
+        // function Father() {
+
+        // }
+        // function Son() {
+
+        // }
+        // inherit(Son,Father);
+        // var son =new Son();
+        // var father = new Father();
+
+        // var inherit = (function () {
+        //     var c =12;
+        //     return function () {
+        //         console.log(c);
+        //     }
+        // }())
+
+        // var obj ={
+        //     name : '12',
+        //     age : 12,
+        //     sex : 'male',
+        //     __proto__:{
+        //         lastname:"Deng"
+        //     }
+        // }
+        // for(var prop in obj){
+        //     if(obj.hasOwnProperty(prop))
+        //     {
+        //         console.log(prop+" "+obj[prop]); 
+        //     }
+        // }   for in 
+
+        // var name = "222";
+        // var a = {
+        //     name : "111",
+        //     say : function () {
+        //         console.log(this.name);
+        //     }
+        // }
+        // var fun = a.say;
+        // fun();
+        // a.say();
+        // var b = {
+        //     name : "333",
+        //     say: function (fun) {
+        //         fun();
+        //     }
+        // }
+        // b.say(a.say);
+        // b.say = a.say;
+        // b.say();
+        // 222  111 222 333
+
+        // var num = (function (n) {
+        //    if(n==1)
+        //    { return 1;}
+        //    else
+        //    {
+        //        return n*arguments.callee(n-1);
+        //    }
+            
+        // }(5))
+
+
+
+        // 深度克隆
+        // var obj = {
+        //     name : "abc",
+        //     age :123,
+        //     card : ['visa','master'],
+        //     wife : {
+        //         name : 'bcd',
+        //         son:{
+        //             name : "aaa"
+        //         }
+        //     }
+        // }
+
+        // function deepclone(origin,target) {
+        //     var target = target||{};
+        //     for (var prop in origin)
+        //     {
+        //         if(origin.hasOwnProperty(prop))
+        //         {
+        //             if(typeof(origin[prop])=='object'&&typeof(origin[prop])!='null')
+        //             {
+        //                 if(Object.prototype.toString.call(origin[prop])=="[ Object Array ]")
+        //                 {
+        //                     target[prop]=[];
+        //                 }
+        //                 else
+        //                 {
+        //                     target[prop]={}
+        //                 }
+        //                 deepclone(origin[prop],target[prop]);
+        //             }
+        //             else
+        //             {
+        //                 target[prop]=origin[prop]
+        //             }     
+        //         }
+        //     }
+        //     return target;
+        // }
+
+         
+    </script>
+</head>
+<body>
+</body>
+</html>

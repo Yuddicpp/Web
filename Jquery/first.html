@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <button>点击</button>
+    <div style="width:300px;height:300px;background-color:aquamarine;border:1px solid green;position:absolute;"></div>
+    <script>
+        // 隐藏和显示
+        // hide(speed,callback),show(speed,callback)
+        // speed:'slow','fast',毫秒
+        // toggle(speed,callback)两者切换
+        // $(function(){
+        //     $('button').click(function(){
+        //         $('div').toggle();
+        //     })
+        // })
+
+        // 淡入淡出
+        // fadeIn(),fadeOut(),fadeTaggle(speed,callback)
+        // fadeTo(speed,opacity,callback);改变透明度
+        // $(function(){
+        //     $('button').click(function(){
+        //         $('div').fadeToggle(1000);
+        //     })
+        // })
+
+        // 滑动
+        // slideDown(),slideUp(),slideToggle(speed,callback);
+        // $(function(){
+        //     $('button').click(function(){
+        //         $('div').slideToggle(1000);
+        //     })
+        // })
+
+        // 动画,停止动画
+        // animate({params},speed,callback)
+        // stop()
+        // $(function(){
+        //     $('button').click(function(){
+        //         $('div').animate({
+        //             left:'+=250px',
+        //             opacity:'-=0.5',
+        //             top:'+=200px',
+        //             width:'+=150px',
+        //             height:'+=150px'
+        //         })
+        //     })
+        // })
+
+        // jQuery Chaining
+        // 一条语句多个jQuery方法
+        // $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+
+        // jQuery Html
+        // 获得(改变)内容：text(string) html(string) val(string)
+        // 获得(改变)属性: attr(string)
+        
+        // text(),html(),val()的回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串
+        // $(function{
+        //     $("button").click(function () {
+        //         $("div").text(function (i, origText) {
+        //             return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+        //         });
+        //     }); 
+        // })
+
+        // attr()的回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串
+        // $("button").click(function () {
+        //         $("div").attr("href", function (i, origValue) {
+        //             return origValue + "/jquery";
+        //         });
+        //     });
+
+        // 添加元素，删除元素
+        // 添加:
+        // append() - 在被选元素内部的结尾插入指定内容
+        // prepend() - 在被选元素内部的开头插入指定内容
+        // after() - 在被选元素之后插入内容
+        // before() - 在被选元素之前插入内容
+        // 删除：
+        // remove() - 删除被选元素（及其子元素）
+        // empty() - 从被选元素中删除子元素
+
+        // css类操作
+        // removeClass(),addClass(),toggleClass();
+
+        // css()方法
+        // css() 方法设置或返回被选元素的一个或多个css属性
+        // 设置css的属性:css("propertyname","value");
+        // 返回css的属性：css("propertyname");
+        // 设置多个css属性：css({"propertyname":"value","propertyname":"value",...});
+
+        // jQuery尺寸
+        // jQuery width() 和 height() 方法
+        // width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）
+        // height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）
+        
+        // jQuery innerWidth() 和 innerHeight() 方法
+        // innerWidth() 方法返回元素的宽度（包括内边距）
+        // innerHeight() 方法返回元素的高度（包括内边距）
+        
+        // jQuery outerWidth() 和 outerHeight() 方法
+        // outerWidth() 方法返回元素的宽度（包括内边距和边框）
+        // outerHeight() 方法返回元素的高度（包括内边距和边框）
+        
+        // outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）
+        // outerHeight(true) 方法返回元素的高度（包括内边距、边框和外边距）
+
+        // 遍历，父元素
+        // parent():返回直接父元素
+        // parents():返回所有祖先元素
+        // parents(element):过滤元素，必须是element
+        // parentsUntil(elelment):返回为被选元素到element之间的祖元素
+
+        // 遍历，子元素
+        // children():返回所有 直接 子元素
+        // children(element):过滤元素，必须是element
+        // find('*'):返回所有子元素
+        // find(element):返回所有标签为element且为子元素的元素
+
+        // 遍历，同胞
+        // siblings():返回所有同胞元素，也可以进行过滤
+        // next() 方法返回被选元素的下一个同胞元素, 该方法只返回一个元素。
+        // nextAll() 方法返回被选元素的所有跟随的同胞元素。
+        // nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+        // prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素（在 DOM 树中沿着同胞元素向后遍历，而不是向前）。
+
+        // 遍历，过滤
+        // first() 方法返回被选元素的首个元素
+        // last() 方法返回被选元素的最后一个元素
+        // eq() 方法返回被选元素中带有指定索引号的元素（索引号从 0 开始，因此首个元素的索引号是 0 而不是 1）
+
+        // filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回
+        // not() 方法返回不匹配标准的所有元素
+        // 提示：not() 方法与 filter() 相反。
+
+        // jQuery get()方法 Ajax
+        //  $.get(URL,data,function(data,status,xhr),dataType) 
+        // data - 包含来自请求的结果数据
+        // status - 包含请求的状态（"success"、"notmodified"、"error"、"timeout"、"parsererror"）
+        // xhr - 包含 XMLHttpRequest 对象
+        // "xml" - 一个 XML 文档
+        // "html" - HTML 作为纯文本
+        // "text" - 纯文本字符串
+        // "script" - 以 JavaScript 运行响应，并以纯文本返回
+        // "json" - 以 JSON 运行响应，并以 JavaScript 对象返回
+        // "jsonp" - 使用 JSONP 加载一个 JSON 块，将添加一个 "?callback=?" 到 URL 来规定回调
+
+        // jQuery post()方法
+        // $.post(URL,data,callback)
+        // 必需的 URL 参数规定您希望请求的 URL
+        // 可选的 data 参数规定连同请求发送的数据
+        // 可选的 callback 参数是请求成功后所执行的函数名
+
+        // jQuery noConflict()
+        // noConflict() 方法会释放对 $ 标识符的控制，这样其他脚本就可以使用它了
+    </script>
+</body>
+</html>
