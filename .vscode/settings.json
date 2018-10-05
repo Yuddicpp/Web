@@ -3,5 +3,8 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "stdio.h": "c"
-    }
+    },
+    "code-runner.runInTerminal": true,
+    "python.linting.flake8Enabled": true,
+    "python.pythonPath": "D:\\python\\python.exe"
 }
